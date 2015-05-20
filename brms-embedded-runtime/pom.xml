@@ -9,7 +9,7 @@
 		<relativePath>../brms-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>brms-embedded-runtime</artifactId>
-	<name>aexp brms embedded runtime</name>
+	<name>brms embedded runtime</name>
 	<dependencies>
 
 		<!-- BRMS dependencies -->

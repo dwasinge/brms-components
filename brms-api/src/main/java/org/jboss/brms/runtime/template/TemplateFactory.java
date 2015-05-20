@@ -73,9 +73,9 @@ public class TemplateFactory {
 			reportActualBinding(staticTemplateBinderPathSet);
 		} catch (NoClassDefFoundError ncde) {
 			String msg = ncde.getMessage();
-			if(messageContainsComAexpBrmsTemplateImplStaticResourceBinder(msg)) {
+			if(messageContainsOrgJbossBrmsTemplateImplStaticResourceBinder(msg)) {
 				INITIALIZATION_STATE = FALLBACK_INITIALIZATION;
-				logger.error("Failed to load class \"com.aexp.brms.template.impl.StaticTemplateBinder\".");
+				logger.error("Failed to load class \"org.jboss.brms.template.impl.StaticTemplateBinder\".");
 				logger.error("Defaulting to no-operation template implementation");
 			} else {
 				failedBinding(ncde);
@@ -83,7 +83,7 @@ public class TemplateFactory {
 			}
 		} catch (java.lang.NoSuchMethodError nsme) {
 			String msg = nsme.getMessage();
-			if(msg != null && msg.indexOf("com.aexp.brms.template.StaticTemplateBinder.getSingleton()") != -1) {
+			if(msg != null && msg.indexOf("org.jboss.brms.template.StaticTemplateBinder.getSingleton()") != -1) {
 				logger.error("brms-api 1.1.x (or later) is incompatible with this binding.");
 				logger.error("Your binding is version 1.0.x or earlier.");
 				logger.error("Upgrade your binding to version 1.1.x.");
@@ -101,13 +101,13 @@ public class TemplateFactory {
 		t.printStackTrace();
 	}
 
-	private static boolean messageContainsComAexpBrmsTemplateImplStaticResourceBinder(String msg) {
+	private static boolean messageContainsOrgJbossBrmsTemplateImplStaticResourceBinder(String msg) {
 
 		if(null == msg) {
 			return false;
-		} else if(msg.indexOf("com/aexp/brms/template/impl/StaticTemplateBinder") != -1 ) {
+		} else if(msg.indexOf("org/jboss/brms/template/impl/StaticTemplateBinder") != -1 ) {
 			return true;
-		} else if(msg.indexOf("com.aexp.brms.template.impl.StaticTemplateBinder") != -1) {
+		} else if(msg.indexOf("org.jboss.brms.template.impl.StaticTemplateBinder") != -1) {
 			return true;
 		}
 
@@ -139,7 +139,7 @@ public class TemplateFactory {
 		return staticTemplateBinderPathSet.size() > 1;
 	}
 
-	private static String STATIC_TEMPLATE_BINDER_PATH = "com/aexp/brms/template/impl/StaticTemplateBinder.class";
+	private static String STATIC_TEMPLATE_BINDER_PATH = "org/jboss/brms/template/impl/StaticTemplateBinder.class";
 
 	private static Set<URL> findPossibleStaticTemplatePathSet() {
 

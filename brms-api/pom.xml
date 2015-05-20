@@ -40,11 +40,11 @@
 				<configuration>
 					<tasks>
 						<echo>Removing brms-api's dummy StaticLoggerBinder</echo>
-						<delete dir="target/classes/com/aexp/brms/runtime/impl" />
-						<delete dir="target/classes/com/aexp/brms/runtime/deploy/impl" />
-						<delete dir="target/classes/com/aexp/brms/runtime/resource/pull/impl" />
-						<delete dir="target/classes/com/aexp/brms/runtime/resource/push/impl" />
-						<delete dir="target/classes/com/aexp/brms/runtime/template/impl" />
+						<delete dir="target/classes/org/jboss/brms/runtime/impl" />
+						<delete dir="target/classes/org/jboss/brms/runtime/deploy/impl" />
+						<delete dir="target/classes/org/jboss/brms/runtime/resource/pull/impl" />
+						<delete dir="target/classes/org/jboss/brms/runtime/resource/push/impl" />
+						<delete dir="target/classes/org/jboss/brms/runtime/template/impl" />
 					</tasks>
 				</configuration>
 			</plugin>

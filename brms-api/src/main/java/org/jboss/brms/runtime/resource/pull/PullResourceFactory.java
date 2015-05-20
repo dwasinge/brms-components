@@ -73,9 +73,9 @@ public class PullResourceFactory {
 			reportActualBinding(staticPullResourceBinderPathSet);
 		} catch (NoClassDefFoundError ncde) {
 			String msg = ncde.getMessage();
-			if(messageContainsComAexpBrmsResourcePullImplStaticResourceBinder(msg)) {
+			if(messageContainsOrgJbossBrmsResourcePullImplStaticResourceBinder(msg)) {
 				INITIALIZATION_STATE = FALLBACK_INITIALIZATION;
-				logger.error("Failed to load class \"com.aexp.brms.runtime.resource.pull.impl.StaticPullResourceBinder\".");
+				logger.error("Failed to load class \"org.jboss.brms.runtime.resource.pull.impl.StaticPullResourceBinder\".");
 				logger.error("Defaulting to no-operation pull resource implementation");
 			} else {
 				failedBinding(ncde);
@@ -83,7 +83,7 @@ public class PullResourceFactory {
 			}
 		} catch (java.lang.NoSuchMethodError nsme) {
 			String msg = nsme.getMessage();
-			if(msg != null && msg.indexOf("com.aexp.brms.runtime.resource.pull.StaticPullResourceBinder.getSingleton()") != -1) {
+			if(msg != null && msg.indexOf("org.jboss.brms.runtime.resource.pull.StaticPullResourceBinder.getSingleton()") != -1) {
 				logger.error("brms-api 1.1.x (or later) is incompatible with this binding.");
 				logger.error("Your binding is version 1.0.x or earlier.");
 				logger.error("Upgrade your binding to version 1.1.x.");
@@ -101,13 +101,13 @@ public class PullResourceFactory {
 		t.printStackTrace();
 	}
 
-	private static boolean messageContainsComAexpBrmsResourcePullImplStaticResourceBinder(String msg) {
+	private static boolean messageContainsOrgJbossBrmsResourcePullImplStaticResourceBinder(String msg) {
 
 		if(null == msg) {
 			return false;
-		} else if(msg.indexOf("com/aexp/brms/runtime/resource/pull/impl/StaticPullResourceBinder") != -1 ) {
+		} else if(msg.indexOf("org/jboss/brms/runtime/resource/pull/impl/StaticPullResourceBinder") != -1 ) {
 			return true;
-		} else if(msg.indexOf("com.aexp.brms.runtime.resource.pull.impl.StaticPullResourceBinder") != -1) {
+		} else if(msg.indexOf("org.jboss.brms.runtime.resource.pull.impl.StaticPullResourceBinder") != -1) {
 			return true;
 		}
 
@@ -139,7 +139,7 @@ public class PullResourceFactory {
 		return staticPullResourceBinderPathSet.size() > 1;
 	}
 
-	private static String STATIC_PULL_RESOURCE_BINDER_PATH = "com/aexp/brms/runtime/resource/pull/impl/StaticPullResourceBinder.class";
+	private static String STATIC_PULL_RESOURCE_BINDER_PATH = "org/jboss/brms/runtime/resource/pull/impl/StaticPullResourceBinder.class";
 
 	private static Set<URL> findPossibleStaticPullResourcePathSet() {
 

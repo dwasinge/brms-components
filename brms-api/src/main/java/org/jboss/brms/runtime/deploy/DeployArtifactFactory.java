@@ -74,9 +74,9 @@ public class DeployArtifactFactory {
 			reportActualBinding(staticDeployArtifactBinderPathSet);
 		} catch (NoClassDefFoundError ncde) {
 			String msg = ncde.getMessage();
-			if(messageContainsComAexpBrmsResourceDeployImplStaticResourceBinder(msg)) {
+			if(messageContainsOrgJbossBrmsResourceDeployImplStaticResourceBinder(msg)) {
 				INITIALIZATION_STATE = FALLBACK_INITIALIZATION;
-				logger.error("Failed to load class \"com.aexp.brms.runtime.deploy.impl.StaticDeployArtifactBinder\".");
+				logger.error("Failed to load class \"org.jboss.brms.runtime.deploy.impl.StaticDeployArtifactBinder\".");
 				logger.error("Defaulting to no-operation deploy artifict implementation");
 			} else {
 				failedBinding(ncde);
@@ -84,7 +84,7 @@ public class DeployArtifactFactory {
 			}
 		} catch (java.lang.NoSuchMethodError nsme) {
 			String msg = nsme.getMessage();
-			if(msg != null && msg.indexOf("com.aexp.brms.runtime.deploy.StaticDeployArtifactBinder.getSingleton()") != -1) {
+			if(msg != null && msg.indexOf("org.jboss.brms.runtime.deploy.StaticDeployArtifactBinder.getSingleton()") != -1) {
 				logger.error("brms-api 1.1.x (or later) is incompatible with this binding.");
 				logger.error("Your binding is version 1.0.x or earlier.");
 				logger.error("Upgrade your binding to version 1.1.x.");
@@ -102,13 +102,13 @@ public class DeployArtifactFactory {
 		t.printStackTrace();
 	}
 
-	private static boolean messageContainsComAexpBrmsResourceDeployImplStaticResourceBinder(String msg) {
+	private static boolean messageContainsOrgJbossBrmsResourceDeployImplStaticResourceBinder(String msg) {
 
 		if(null == msg) {
 			return false;
-		} else if(msg.indexOf("com/aexp/brms/runtime/deploy/impl/StaticDeployArtifactBinder") != -1 ) {
+		} else if(msg.indexOf("org/jboss/brms/runtime/deploy/impl/StaticDeployArtifactBinder") != -1 ) {
 			return true;
-		} else if(msg.indexOf("com.aexp.brms.runtime.deploy.impl.StaticDeployArtifactBinder") != -1) {
+		} else if(msg.indexOf("org.jboss.brms.runtime.deploy.impl.StaticDeployArtifactBinder") != -1) {
 			return true;
 		}
 
@@ -140,7 +140,7 @@ public class DeployArtifactFactory {
 		return staticDeployArtifactBinderPathSet.size() > 1;
 	}
 
-	private static String STATIC_DEPLOY_ARTIFACT_BINDER_PATH = "com/aexp/brms/runtime/deploy/impl/StaticDeployArtifactBinder.class";
+	private static String STATIC_DEPLOY_ARTIFACT_BINDER_PATH = "org/jboss/brms/runtime/deploy/impl/StaticDeployArtifactBinder.class";
 
 	private static Set<URL> findPossibleStaticDeployArtifactPathSet() {
 

@@ -5,7 +5,7 @@
 	<groupId>org.jboss.brms</groupId>
 	<artifactId>brms-components</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>aexp brms components</name>
+	<name>brms components</name>
 	<packaging>pom</packaging>
 	
 	<modules>
