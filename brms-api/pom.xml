@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.jboss.brms</groupId>
+		<artifactId>brms-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../brms-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>brms-api</artifactId>
+	<name>brms api</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.brms</groupId>
+			<artifactId>brms-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<tasks>
+						<echo>Removing brms-api's dummy StaticLoggerBinder</echo>
+						<delete dir="target/classes/com/aexp/brms/runtime/impl" />
+						<delete dir="target/classes/com/aexp/brms/runtime/deploy/impl" />
+						<delete dir="target/classes/com/aexp/brms/runtime/resource/pull/impl" />
+						<delete dir="target/classes/com/aexp/brms/runtime/resource/push/impl" />
+						<delete dir="target/classes/com/aexp/brms/runtime/template/impl" />
+					</tasks>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

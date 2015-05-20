@@ -1,0 +1,11 @@
+package test.rules
+
+import java.util.Map;
+
+rule "Test Rule A"
+	dialect "mvel"
+	when
+		$m : Map( this['year'] == "@{year}")
+	then 
+		$m['message'] = "hello";
+end
