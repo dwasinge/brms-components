@@ -1,0 +1,16 @@
+package test.rules
+
+import org.jboss.brms.facts.*;
+
+rule "DRL1 - Rule"
+	ruleflow-group "Test Group"
+	dialect "mvel"
+	when
+		GenericRequest
+		(
+			$requestString : requestString,
+			$requestInteger : requestInteger
+		)
+	then 
+		insert( new GenericResponse( $requestString, $requestInteger ) );
+end

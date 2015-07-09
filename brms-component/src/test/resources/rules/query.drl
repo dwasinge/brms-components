@@ -1,0 +1,11 @@
+package test.rules
+
+import org.jboss.brms.facts.GenericResponse;
+
+query "Get All Strings"
+	$string : String()
+end
+
+query "Get All Generic Responses"
+	$genericResponseList : GenericResponse()
+end

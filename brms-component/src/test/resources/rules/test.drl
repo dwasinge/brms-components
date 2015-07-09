@@ -1,0 +1,13 @@
+package test.rules
+
+
+rule "Test Rule"
+ruleflow-group "Test Group"
+ 	
+ 	when
+ 		$int : Integer()
+ 	then
+ 		System.out.println("Hello, World! Test rule firing");
+ 		insert ( new String("test") );
+
+end
