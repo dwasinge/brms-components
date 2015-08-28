@@ -2,24 +2,17 @@ package test.rules
 
 import org.jboss.brms.facts.*;
 
-rule "Offer1"
+@foreach{ offer : offers }
+
+rule "Offer1 - @{offer.transactionMinimum} "
 	ruleflow-group "offers"
 	dialect "mvel"
 	
 	when
-		Purchase( zipCode == 10002, transactionAmount > 150.00 )
+		Purchase( zipCode == @{offer.zipCode} , transactionAmount > @{offer.transactionMinimum}  )
 	then 
-		insert( new PromotionalReward( 10.00 ) );
+		insert( new PromotionalReward( @{offer.rewardAmount} ) );
 
 end
 
-rule "Offer2"
-	ruleflow-group "offers"
-	dialect "mvel"
-	
-	when
-		Purchase( zipCode == 21228, transactionAmount > 100.00 )
-	then 
-		insert( new PromotionalReward( 10.00 ) );
-
-end
+@end{}
