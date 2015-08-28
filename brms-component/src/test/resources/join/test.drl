@@ -1,0 +1,16 @@
+package test.rules
+
+import org.jboss.brms.facts.*;
+
+rule "Join Rule"
+	ruleflow-group "offers"
+	dialect "mvel"
+	
+	when
+		$p : Purchase( )
+		PromotionalOffer( zipCode == $p.zipCode, transactionMinimum <= $p.transactionAmount )
+		
+	then 
+		insert( new PromotionalReward( 10.00 ) );
+
+end
