@@ -73,7 +73,7 @@ public class RemoteStatelessDecisionService implements StatelessDecisionService 
 	}
 
 	@Override
-	public <Response> Response execute(Collection<Object> facts, String processId, Class<Response> responseClazz) {
+	public <Response> Response runRules(Collection<Object> facts, String processId, Class<Response> responseClazz) {
 		if (!inited) {
 			init();
 		}

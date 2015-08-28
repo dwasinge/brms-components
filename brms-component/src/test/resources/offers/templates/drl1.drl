@@ -1,0 +1,25 @@
+package test.rules
+
+import org.jboss.brms.facts.*;
+
+rule "Offer1"
+	ruleflow-group "offers"
+	dialect "mvel"
+	
+	when
+		Purchase( zipCode == 10002, transactionAmount > 150.00 )
+	then 
+		insert( new PromotionalReward( 10.00 ) );
+
+end
+
+rule "Offer2"
+	ruleflow-group "offers"
+	dialect "mvel"
+	
+	when
+		Purchase( zipCode == 21228, transactionAmount > 100.00 )
+	then 
+		insert( new PromotionalReward( 10.00 ) );
+
+end

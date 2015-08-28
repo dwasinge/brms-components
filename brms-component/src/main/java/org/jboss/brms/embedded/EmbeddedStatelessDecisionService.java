@@ -64,7 +64,7 @@ public class EmbeddedStatelessDecisionService implements StatelessDecisionServic
 	}
 
 	@Override
-	public <Response> Response execute(Collection<Object> facts, String processId, Class<Response> responseClazz) {
+	public <Response> Response runRules(Collection<Object> facts, String processId, Class<Response> responseClazz) {
 		LOGGER.debug("begin execution");
 		if ( !inited ){
 			init();

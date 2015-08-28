@@ -1,0 +1,7 @@
+package test.rules
+
+import org.jboss.brms.facts.*;
+
+query "Get All Rewards"
+	$reward : PromotionalReward()
+end

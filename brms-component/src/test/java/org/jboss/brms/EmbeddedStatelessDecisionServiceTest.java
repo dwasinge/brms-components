@@ -27,7 +27,7 @@ public class EmbeddedStatelessDecisionServiceTest extends AbstractJUnit4SpringCo
 		facts.add(foo);
 
 		// When
-		TestResponse response = service.execute(facts, "Ruleflow", TestResponse.class);
+		TestResponse response = service.runRules(facts, "Ruleflow", TestResponse.class);
 
 		// Then
 		Assert.assertNotNull(response.getStrings());
@@ -45,7 +45,7 @@ public class EmbeddedStatelessDecisionServiceTest extends AbstractJUnit4SpringCo
 		facts.add(foo);
 
 		// When
-		TestResponse response = service.execute(facts, "Ruleflow", TestResponse.class);
+		TestResponse response = service.runRules(facts, "Ruleflow", TestResponse.class);
 
 		// Then
 		Assert.assertNotNull(response.getStrings());
@@ -61,7 +61,7 @@ public class EmbeddedStatelessDecisionServiceTest extends AbstractJUnit4SpringCo
 		facts.add(foo);
 
 		// When
-		TestResponse response = springService.execute(facts, "Ruleflow", TestResponse.class);
+		TestResponse response = springService.runRules(facts, "Ruleflow", TestResponse.class);
 
 		// Then
 		Assert.assertNotNull(response.getStrings());

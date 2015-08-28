@@ -36,9 +36,9 @@ public class EmbeddedBrmsRuleGeneratorTest extends KieTestSupport {
 					.newBrmsGeneratorBuilder()
 					.kjarGroupId(GROUP_ID)
 					.kjarArtifactId(ARTIFACT_ID)
-					.templatePath("templates")
-					.ruleflowPath("ruleflow")
-					.rulePath("rules")
+					.templatePath("generic/templates")
+					.ruleflowPath("generic/ruleflow")
+					.rulePath("generic/rules")
 					.classes(classes)
 					.inputMap(inputMap)
 					.build();
@@ -59,7 +59,7 @@ public class EmbeddedBrmsRuleGeneratorTest extends KieTestSupport {
 		facts.add(request);
 
 		// Execute Rules against facts
-		GenerationTestResponse response = getEmbeddedDecisionService(false).execute(facts, RULEFLOW, GenerationTestResponse.class);
+		GenerationTestResponse response = getEmbeddedDecisionService(false).runRules(facts, RULEFLOW, GenerationTestResponse.class);
 
 		// Validate Response
 		Assert.assertNotNull(response);

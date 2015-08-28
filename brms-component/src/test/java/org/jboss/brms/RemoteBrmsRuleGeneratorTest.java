@@ -61,7 +61,7 @@ public class RemoteBrmsRuleGeneratorTest extends KieTestSupport {
 		facts.add(request);
 
 		// Execute Rules against facts
-		GenerationTestResponse response = getRemoteDecisionServiceWithDefaultValues().execute(facts, RULEFLOW, GenerationTestResponse.class);
+		GenerationTestResponse response = getRemoteDecisionServiceWithDefaultValues().runRules(facts, RULEFLOW, GenerationTestResponse.class);
 
 		// Validate Response
 		Assert.assertNotNull(response);

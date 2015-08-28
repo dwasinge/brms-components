@@ -1,0 +1,18 @@
+//created on: Aug 27, 2015
+package test
+
+import org.jboss.brms.fact.*;
+
+
+
+rule "Your First Rule"
+	ruleflow-group "Test Group"
+	
+    when
+        Integer()
+    then
+        insert ( new String("test") );
+
+end
+
+

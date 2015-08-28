@@ -13,4 +13,5 @@ rule "DRL1 - Rule"
 		)
 	then 
 		insert( new GenericResponse( $requestString, $requestInteger ) );
+
 end

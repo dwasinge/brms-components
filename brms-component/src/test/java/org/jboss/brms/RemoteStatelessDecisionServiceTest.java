@@ -59,7 +59,7 @@ public class RemoteStatelessDecisionServiceTest {
 
 		// When
 		service.createOrUpgradeRulesWithVersion("com.rhc", "test", time);
-		TestResponse response = service.execute(facts, "Ruleflow", TestResponse.class);
+		TestResponse response = service.runRules(facts, "Ruleflow", TestResponse.class);
 
 		// Then
 		Assert.assertNotNull(response.getStrings());
@@ -93,7 +93,7 @@ public class RemoteStatelessDecisionServiceTest {
 
 		// When
 		service2.createOrUpgradeRulesWithVersion("com.rhc", "test", time);
-		TestResponse response = service2.execute(facts, "Ruleflow", TestResponse.class);
+		TestResponse response = service2.runRules(facts, "Ruleflow", TestResponse.class);
 
 		// Then
 		Assert.assertNotNull(response.getStrings());
