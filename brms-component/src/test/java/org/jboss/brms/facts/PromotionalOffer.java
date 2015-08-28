@@ -41,4 +41,9 @@ public class PromotionalOffer {
 		this.rewardAmount = rewardAmount;
 	}
 
+	@Override
+	public String toString() {
+		return "PromotionalOffer [zipCode=" + zipCode + ", transactionMinimum=" + transactionMinimum + ", rewardAmount=" + rewardAmount + "]";
+	}
+
 }

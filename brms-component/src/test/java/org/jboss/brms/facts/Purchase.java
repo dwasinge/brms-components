@@ -30,4 +30,9 @@ public class Purchase {
 		this.transactionAmount = transactionAmount;
 	}
 
+	@Override
+	public String toString() {
+		return "Purchase [zipCode=" + zipCode + ", transactionAmount=" + transactionAmount + "]";
+	}
+
 }

@@ -14,5 +14,3 @@ rule "Your First Rule"
         insert ( new String("test") );
 
 end
-
-
